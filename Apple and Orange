@@ -12,29 +12,20 @@
 
 // Complete the countApplesAndOranges function below.
 fun countApplesAndOranges(s: Int, t: Int, a: Int, b: Int, apples: Array<Int>, oranges: Array<Int>): Unit {
-    val startPointHome = s
-    val endPointHome = t
-    val appleLoc = a
-    val orangeLoc = b
-    var orangeOnHouse = 0
-    var applesOnHouse = 0
-    // Calculate of apples that fall on house
-    for (element in apples) {
-        var applePosition = appleLoc + element
-        if (applePosition in startPointHome..endPointHome) {
-            applesOnHouse++
+    var appleCount = 0
+    var orangeCount = 0
+    for (i in apples.indices) {
+        if (apples[i] + a in s..t) {
+            appleCount++
         }
     }
-    // Calculate of orange that fall on house
-    for (element in oranges) {
-        val item = element
-        var orangePosition = orangeLoc + item
-        if (orangePosition in startPointHome..endPointHome) {
-            orangeOnHouse++
+    for (i in oranges.indices) {
+        if (oranges[i] + b in s..t) {
+            orangeCount++
         }
     }
-    println(applesOnHouse)
-    println(orangeOnHouse)
+    println(appleCount)
+    println(orangeCount)
 }
 
 fun main(args: Array<String>) {
